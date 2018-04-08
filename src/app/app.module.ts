@@ -8,8 +8,40 @@ import { HomeComponent } from './pages/home/home.component';
 import { MembersComponent } from './pages/members/members.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
-import { UploadComponent } from './pages/upload/upload.component';
+import { PostsComponent } from './pages/posts/posts.component';
+import { NewPostsComponent } from './pages/new-posts/new-posts.component';
+import { RouterModule, Routes } from '@angular/router';
 
+const appRoutes: Routes = [
+  {
+    path: '',
+    component: HomeComponent
+  },
+  {
+    path: 'home',
+    component: HomeComponent
+  },
+  {
+    path: 'posts',
+    component: PostsComponent
+  },
+  {
+    path: 'posts/new',
+    component: NewPostsComponent
+  },
+  {
+    path: 'members',
+    component: MembersComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
+  }
+]
 
 @NgModule({
   declarations: [
@@ -19,10 +51,12 @@ import { UploadComponent } from './pages/upload/upload.component';
     MembersComponent,
     RegisterComponent,
     LoginComponent,
-    UploadComponent
+    PostsComponent,
+    NewPostsComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]

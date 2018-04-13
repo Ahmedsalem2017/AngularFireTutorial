@@ -1,3 +1,10 @@
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireStorageModule } from 'angularfire2/storage';
+import { environment } from './../environments/environment';
+
+import { AngularFireModule } from 'angularfire2';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -11,6 +18,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { PostsComponent } from './pages/posts/posts.component';
 import { NewPostsComponent } from './pages/new-posts/new-posts.component';
 import { RouterModule, Routes } from '@angular/router';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { SinglePostComponent } from './pages/single-post/single-post.component';
 
 const appRoutes: Routes = [
   {
@@ -40,6 +49,14 @@ const appRoutes: Routes = [
   {
     path: 'register',
     component: RegisterComponent
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent
+  },
+  {
+    path: 'profile/:email',
+    component: ProfileComponent
   }
 ]
 
@@ -52,11 +69,17 @@ const appRoutes: Routes = [
     RegisterComponent,
     LoginComponent,
     PostsComponent,
-    NewPostsComponent
+    NewPostsComponent,
+    ProfileComponent,
+    SinglePostComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFireDatabaseModule,
+    AngularFireStorageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

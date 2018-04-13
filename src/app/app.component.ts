@@ -1,3 +1,4 @@
+import { RandomID } from './glopal/RandomID';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+ 
+
+  constructor(){
+    for(let i = 0;i < 1000;i++){
+      console.log(RandomID.generatePushID());
+    }
+  }
 }

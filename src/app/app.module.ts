@@ -20,6 +20,7 @@ import { NewPostsComponent } from './pages/new-posts/new-posts.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { SinglePostComponent } from './pages/single-post/single-post.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
   {
@@ -55,8 +56,12 @@ const appRoutes: Routes = [
     component: ProfileComponent
   },
   {
-    path: 'profile/:email',
+    path: 'profile/:uid',
     component: ProfileComponent
+  },
+  {
+    path: 'posts/:key',
+    component: SinglePostComponent
   }
 ]
 
@@ -79,7 +84,8 @@ const appRoutes: Routes = [
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

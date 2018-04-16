@@ -2,3 +2,7 @@
 a{
     text-decoration: none;
 }
+
+.red-borders{
+    border: 1px solid red;
+}

@@ -2,23 +2,45 @@
   <div class="row">
     <div class="col-12">
       <div class="mx-auto w-50">
+        <p>The fields with * is required.</p>
         <div class="form-group">
-          <label for="">Your name</label>
-          <input type="text" class="form-control" placeholder="Your name">
+          <div class="alert alert-danger">
+            <ul>
+              <li>The name field is required.</li>
+              <li>The minmum length of name field is 3 char.</li>
+              <li>The maximum length of name field is 30 char.</li>
+            </ul>
+          </div>
+          <label for="">Your name*</label>
+          <input [class.red-borders]="true" type="text" class="form-control" placeholder="Your name">
         </div>
         <div class="form-group">
-          <label for="">Your email</label>
-          <input type="text" class="form-control" placeholder="Your email">
+          <div class="alert alert-danger">
+            <ul>
+              <li>The email field is required.</li>
+              <li>Please enter a valid email address.</li>
+            </ul>
+          </div>
+          <label for="">Your email*</label>
+          <input [class.red-borders]="true" type="text" class="form-control" placeholder="Your email">
         </div>
         <div class="form-group">
-          <label for="">Your password</label>
-          <input type="password" class="form-control" placeholder="Your password">
+          <div class="alert alert-danger">
+            <ul>
+              <li>The password field is required.</li>
+              <li>The minmum length of password field is 6 char.</li>
+              <li>The maximum length of password field is 30 char.</li>
+            </ul>
+          </div>
+          <label for="">Your password*</label>
+          <input [class.red-borders]="true" type="password" class="form-control" placeholder="Your password">
         </div>
         <div class="form-group">
           <label for="">Avatar image</label>
           <input type="file" class="form-control">
         </div>
-        <button class="btn btn-primary">Submit</button>
+        <button [disabled]="true" class="btn btn-primary">Submit</button>
+        <span>Loading...</span>
       </div>
     </div>
   </div>
